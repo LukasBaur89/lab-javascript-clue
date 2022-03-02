@@ -91,7 +91,7 @@ const roomsArray = [
 // Weapons Array
 
 const weaponsArray = [
-  {
+    {
     name: "rope",
     weight: 10,
     },
@@ -140,14 +140,27 @@ const weaponsArray = [
 
 // ITERATION 2
 
-function selectRandom() {}
+function selectRandom(array) {
+  const randomElement = array[Math.floor(Math.random()* array.length)];
+  return randomElement
+  }
 
-function pickMystery() {}
-
+// O: object {suspect: card value, weapon: card value, room: card value}, math.Random on each card stack
+function pickMystery() {
+  const mystery = {
+    suspect: selectRandom(suspectsArray),
+    weapon: selectRandom(weaponsArray),
+    room: selectRandom(roomsArray),
+  };
+  return mystery
+}
 
 // ITERATION 3
-
-function revealMystery() {}
+// O: return reveal message
+function revealMystery(envelope) {
+  const message = `${envelope.suspect.firstName} ${envelope.suspect.lastName} killed Mr. Boddy using the ${envelope.weapon.name} in the ${envelope.room.name}!`
+  return message
+}
 
 
 
